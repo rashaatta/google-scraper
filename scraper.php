@@ -118,7 +118,9 @@ if (isset($_POST['footprint'])) {
             );
         }
     }
+
  //   scrap_to_csv($result);
+
 } else {
     $footprint = '';
 }
@@ -234,10 +236,15 @@ if (isset($_POST['footprint'])) {
                         },
                         'colvis'
                     ],
-                    columnDefs: [{
-                            targets: -1,
-                            visible: true
-                        }]
+                        targets: -1,
+                        visible: true,
+                        sortable: false
+                    }]
+//                    dom: 'Bfrtip',
+//                    buttons: [
+//                        'copy', 'csv', 'excel', 'pdf', 'print'
+//                    ]
+
                 });
 
 
