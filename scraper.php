@@ -118,7 +118,7 @@ if (isset($_POST['footprint'])) {
             );
         }
     }
-    scrap_to_csv($result);
+ //   scrap_to_csv($result);
 } else {
     $footprint = '';
 }
@@ -142,31 +142,13 @@ if (isset($_POST['footprint'])) {
                     <input type="hidden" name='title' id='title' value="true"/>
                     <input type="hidden" name="link" id='link' value="true"/>
                     <input type="hidden" name="description" id='description' value="true"/>                    
-
-
                     <input type="text"  class="form-control" placeholder="Search" name="footprint"  style="width: 30%;    display: inline;"  value="<?php echo $footprint; ?>" />
                     <input type="submit" class="btn btn-success" value="Scrap!"/>
-
-                    <!--//                    if (!empty($result)) {
-                    //                        echo '<a href="scrap.csv"  class="btn btn-success" >Download CSV</a>';
-                    //                    }-->
-
                 </div>
             </form>
 
             <br/>
             <div class="row">
-
-<!--                <div>
-                    <p>Toggle column: </p>      
-                    <div class="form-group">                                           
-                        <label style="margin-right: 5px"><input type="checkbox" class="toggle-vis" data-column="0" name='id' checked >ID</label>
-                        <label style="margin-right: 5px"><input type="checkbox" class="toggle-vis" data-column="1" name='title' checked >Title</label>
-                        <label style="margin-right: 5px"><input type="checkbox" class="toggle-vis" data-column="2" name='link' checked >Link</label>
-                        <label style="margin-right: 5px"><input type="checkbox" class="toggle-vis" data-column="3" name='description' checked >Description</label>
-                    </div>
-                </div>-->
-
                 <?php
                 $i = 1;
                 $index = 1;
@@ -177,7 +159,7 @@ if (isset($_POST['footprint'])) {
                             <th >Title</th>
                             <th >Link</th>
                             <th >Description</th>  
-                            <th >Print</th>
+                            <th >CAPTURE</th>
                         </tr>
                     </thead>
                     <tbody>';
@@ -185,13 +167,11 @@ if (isset($_POST['footprint'])) {
 
                     $index = $i++;
                     $body .= '<tr>' .
-                            '<td >' . $index . '</td>' .
-                            '<td >' . $line['title'] . '</td>' .
-                            '<td ><a href="' . $line['link'] . '"  target="_blank" >' . $line['link'] . ' </a></td>' .
-                            '<td >' . $line['description'] . '</td>' .
-                            '<td >
-                             <a href="print.php?url=' . $line['link'] . '"    class="btn btn-success"  target="_blank" >CAPTURE</a>                 
-                           </td>' .
+                            '<td>' . $index . '</td>' .
+                            '<td>' . $line['title'] . '</td>' .
+                            '<td><a href="' . $line['link'] . '"  target="_blank" >' . $line['link'] . ' </a></td>' .
+                            '<td>' . $line['description'] . '</td>' .
+                            '<td><a href="print.php?url=' . $line['link'] . '"    class="btn btn-success"  target="_blank" >CAPTURE</a></td>' .
                             '</tr>';
                 }
 
@@ -241,36 +221,25 @@ if (isset($_POST['footprint'])) {
                                 columns: ':visible'
                             }
                         },
-
+ {
+                            extend: 'pdf',
+                            exportOptions: {
+                                columns: ':visible'
+                            }
+                        }, {
+                            extend: 'print',
+                            exportOptions: {
+                                columns: ':visible'
+                            }
+                        },
                         'colvis'
                     ],
                     columnDefs: [{
                             targets: -1,
-                            visible: false
+                            visible: true
                         }]
-//                    dom: 'Bfrtip',
-//                    buttons: [
-//                        'copy', 'csv', 'excel', 'pdf', 'print'
-//                    ]
                 });
 
-                $('input.toggle-vis').on('click', function (e) {
-                    // e.preventDefault();
-
-                    // Get the column API object
-                    var column = table.column($(this).attr('data-column'));
-                    var colName = $(this).attr('name');
-                    console.log(colName);
-
-                    // Toggle the visibility
-                    column.visible(!column.visible());
-
-
-                    console.log($('#description').val());
-                    $(this).prop('checked', column.visible());
-
-                    $('#' + colName).val(column.visible());
-                });
 
             });
         </script>
