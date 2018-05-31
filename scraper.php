@@ -57,6 +57,28 @@ if (isset($_POST['footprint'])) {
     $footprint = $_POST['footprint'];
     $q = urlencode(str_replace(' ', '+', $footprint));
     $data = get_content('http://www.google.com/search?hl=en&q=' . $q . '&num=200&filter=0');
+ 
+        // create curl resource 
+        $ch = curl_init(); 
+
+        // set url 
+        curl_setopt($ch, CURLOPT_URL, 'http://www.google.com/search?hl=en&q=' . $q . '&num=200&filter=0'); 
+
+        //return the transfer as a string 
+        $proxy = '18.188.165.157:80';
+        //$proxyauth = 'user:password';
+//         $ch = curl_init();
+// curl_setopt($ch, CURLOPT_URL,$url);
+curl_setopt($ch, CURLOPT_PROXY, $proxy);
+//curl_setopt($ch, CURLOPT_PROXYUSERPWD, $proxyauth);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_HEADER, 1);
+$curl_scraped_page = curl_exec($ch);
+curl_close($ch);
+
+echo $curl_scraped_page;exit;
+
     $html = str_get_html($data);
 
     foreach ($html->find('.g') as $g) {
