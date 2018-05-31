@@ -1,0 +1,12 @@
+[31-May-2018 15:49:21 Africa/Cairo] PHP Warning:  file_get_contents(API_ENDPOINT_URL?url=google.com&amp;access_key=672417547117432): failed to open stream: No error in C:\Projects\google-scraper\print.php on line 11
+[31-May-2018 17:15:35 Africa/Cairo] PHP Fatal error:  Class 'ScreenshotsCloud\ScreenshotsCloud' not found in C:\Projects\google-scraper\test.php on line 15
+[31-May-2018 17:15:40 Africa/Cairo] PHP Fatal error:  Class 'ScreenshotsCloud\ScreenshotsCloud' not found in C:\Projects\google-scraper\test.php on line 15
+[31-May-2018 17:16:00 Africa/Cairo] PHP Fatal error:  Class 'ScreenshotsCloud\ScreenshotsCloud' not found in C:\Projects\google-scraper\test.php on line 17
+[31-May-2018 17:16:57 Africa/Cairo] PHP Warning:  file_get_contents(https://api.screenshots.cloud/v1/screenshot/my-key-generated-at-screenshots-dot-cloud/2612802063219fe7dca57cef61a48299f14c02a5?url=slack.comhttp%3A%2F%2Fdakahlia.moe.gov.eg%2Far%2FEServices%2FPages%2FExamResultSearch.aspx&amp;width=1040&amp;viewport_width=1560&amp;cache_time=86400): failed to open stream: HTTP request failed! HTTP/1.0 403 Forbidden
+ in C:\Projects\google-scraper\test.php on line 29
+[31-May-2018 17:20:45 Africa/Cairo] PHP Warning:  file_get_contents(https://api.screenshots.cloud/v1/screenshot/my-key-generated-at-screenshots-dot-cloud/2612802063219fe7dca57cef61a48299f14c02a5?url=slack.comhttp%3A%2F%2Fdakahlia.moe.gov.eg%2Far%2FEServices%2FPages%2FExamResultSearch.aspx&amp;width=1040&amp;viewport_width=1560&amp;cache_time=86400): failed to open stream: HTTP request failed! HTTP/1.0 403 Forbidden
+ in C:\Projects\google-scraper\test.php on line 34
+[31-May-2018 17:20:47 Africa/Cairo] PHP Warning:  file_get_contents(https://api.screenshots.cloud/v1/screenshot/my-key-generated-at-screenshots-dot-cloud/2612802063219fe7dca57cef61a48299f14c02a5?url=slack.comhttp%3A%2F%2Fdakahlia.moe.gov.eg%2Far%2FEServices%2FPages%2FExamResultSearch.aspx&amp;width=1040&amp;viewport_width=1560&amp;cache_time=86400): failed to open stream: HTTP request failed! HTTP/1.0 403 Forbidden
+ in C:\Projects\google-scraper\test.php on line 34
+[31-May-2018 17:21:12 Africa/Cairo] PHP Warning:  file_get_contents(https://api.screenshots.cloud/v1/screenshot/my-key-generated-at-screenshots-dot-cloud/2612802063219fe7dca57cef61a48299f14c02a5?url=slack.comhttp%3A%2F%2Fdakahlia.moe.gov.eg%2Far%2FEServices%2FPages%2FExamResultSearch.aspx&amp;width=1040&amp;viewport_width=1560&amp;cache_time=86400): failed to open stream: HTTP request failed! HTTP/1.0 403 Forbidden
+ in C:\Projects\google-scraper\test.php on line 30
