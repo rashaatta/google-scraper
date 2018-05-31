@@ -24,6 +24,19 @@ function strip_tags_content($text, $tags = '', $invert = FALSE) {
     return $text;
 }
 
+function exportToolPDF($src, $dst) {
+    $error = new ErrorMessage();
+    try {
+        //  global $src, $session;
+        exec('wkhtmltoimage ' . $src . ' ' . $dst);
+        //        exec('/usr/local/bin/dump.sh '.$session);
+        return 1;
+    } catch (Exception $ex) {
+        echo $ex->getMessage();
+        return;
+    }
+}
+
 function extract_url_from_redirect_link($url) {
     if ($url != '') {
         $q = parse_url($url)['query'];
