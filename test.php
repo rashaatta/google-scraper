@@ -1,16 +1,18 @@
 <?php
+ini_set('display_errors', 1);
+// include your composer dependencies
+require_once 'google-api-php-client-2.2.1/vendor/autoload.php';
 
-$list = array (
-    array('aaa', 'bbb', 'ccc', 'dddd'),
-    array('123', '456', '789'),
-    array('"aaa"', '"bbb"')
-);
+$client = new Google_Client();
+$client->setApplicationName("Client_Library_Examples");
+$client->setDeveloperKey("AIzaSyAlla4CLKMFSXfOXNtQz1IYHg6ApMFu4hg");
 
-$fp = fopen('file.csv', 'w');
+$service = new Google_Service_Books($client);
+$optParams = array('filter' => 'free-ebooks');
+$results = $service->volumes->listVolumes('Henry David Thoreau', $optParams);
 
-foreach ($list as $fields) {
-    fputcsv($fp, $fields);
+foreach ($results as $item) {
+  echo $item['volumeInfo']['title'], "<br /> \n";
 }
 
-fclose($fp);
 ?>

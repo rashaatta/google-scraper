@@ -109,7 +109,10 @@ if (isset($_POST['footprint'])) {
 
     $footprint = $_POST['footprint'];
     $q = urlencode(str_replace(' ', '+', $footprint));
-    $data = get_content('http://www.google.com/search?hl=en&q=' . $q . '&num=200&filter=0');
+    // var_dump($q);
+    // $data = get_content('http://www.google.com/search?hl=en&q=' . $q . '&num=200&filter=0');
+    $data = get_content('https://www.googleapis.com/customsearch/v1?key=AIzaSyAlla4CLKMFSXfOXNtQz1IYHg6ApMFu4hg&cx=001536797023093816455:to1dcbevc8o&q=' . $q . '');
+    var_dump($data); exit;
     $html = str_get_html($data);
 
     foreach ($html->find('.g') as $g) {
@@ -157,8 +160,8 @@ if (isset($_POST['footprint'])) {
                     <input type="hidden" name="description" id='description' value="true"/>                    
 
 
-                    <input type="text"  class="form-control" placeholder="Search" name="footprint"  style="width: 30%;    display: inline;"  value="<?php echo $footprint; ?>" />
-                    <input type="submit" class="btn btn-success" value="Scrap!"/>
+                    <input type="text"  class="form-control" placeholder="Search" id="footprint" name="footprint"  style="width: 30%;    display: inline;"  value="<?php echo $footprint; ?>" />
+                    <input type="button" class="btn btn-success" value="Scrap!" onclick="getResults(event)"/>
 
                     <!--//                    if (!empty($result)) {
                     //                        echo '<a href="scrap.csv"  class="btn btn-success" >Download CSV</a>';
@@ -262,10 +265,10 @@ if (isset($_POST['footprint'])) {
                         visible: true,
                         sortable: false
                     }]
-//                    dom: 'Bfrtip',
-//                    buttons: [
-//                        'copy', 'csv', 'excel', 'pdf', 'print'
-//                    ]
+                    //                    dom: 'Bfrtip',
+                    //                    buttons: [
+                    //                        'copy', 'csv', 'excel', 'pdf', 'print'
+                    //                    ]
                 });
 
                 $('input.toggle-vis').on('click', function (e) {
@@ -285,6 +288,54 @@ if (isset($_POST['footprint'])) {
 
                     $('#' + colName).val(column.visible());
                 });
+
+                getResults = function(e){
+                    e.preventDefault();
+                    var search = $("#footprint").val();
+                    //'https://www.googleapis.com/customsearch/v1?key=AIzaSyAlla4CLKMFSXfOXNtQz1IYHg6ApMFu4hg&cx=001536797023093816455:to1dcbevc8o&q=' . $q . ''
+                    $.ajax({
+                        url: "https://www.googleapis.com/customsearch/v1",
+                        method: "GET",
+                        data: {
+                            "key": "AIzaSyAlla4CLKMFSXfOXNtQz1IYHg6ApMFu4hg",
+                            "cx" : "001536797023093816455:to1dcbevc8o",
+                            "q"  : search
+                        },
+                        success: function(data){
+                            // console.log(data.items);
+                            table.clear().draw();
+                            var body = '  <table id="tblId" width="100%" class="table table-striped  table-bordered">'+
+                                        '<thead>'+
+                                            '<tr>'+
+                                                '<th >ID</th>'+
+                                                '<th >Title</th>'+
+                                            ' <th >Link</th>'+
+                                            ' <th >Description</th>  '+
+                                            ' <th >Print</th>'+
+                                            '</tr>'+
+                                        '</thead>'+
+                                        '<tbody>';
+                            for(i = 0; i < data.items.length; i++){
+                                var item = data.items[i];
+                                console.log(item);
+                                body += '<tr>' +
+                                    '<td >' + (i+1) + '</td>' +
+                                    '<td >' + item.title + '</td>' +
+                                    '<td ><a href="' + item.link + '"  target="_blank" >' + item.link + ' </a></td>' +
+                                    '<td >' + item.snippet + '</td>' +
+                                    '<td >' +
+                                    '<a href="print.php?url=' + item.link + '"    class="btn btn-success"  target="_blank" >CAPTURE</a>'+
+                                    '</td>' +
+                                '</tr>';
+                            }
+                            body += '</tbody></table>';
+                            $('#tblId').html(body);
+                        },
+                        error: function(err){
+                            console.log(err);
+                        }
+                    });
+                }
 
             });
         </script>
