@@ -118,6 +118,7 @@ if (isset($_POST['footprint'])) {
             <div class="row">
                 <p><b>Server IP:</b> <?php echo $ip; ?></p>
                 <p id="counterel"><b>Counter : </b> <?php echo $_SESSION['counter']; ?> </p>
+                <p><b>Timer : </b> <span id="timer">30</span> </p>
             </div><br>
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                 <div class="row">
@@ -188,6 +189,19 @@ if (isset($_POST['footprint'])) {
         <script>
 
             $(document).ready(function () {
+                var timer = 0;
+                var minus = 30;
+
+                setInterval(function(){
+                    timer++;
+                    minus = 30 - timer;
+                    if(minus > 0){
+                        $("#timer").html(minus);
+                    } else {
+                        $("#timer").html('You can search now!');
+                    }
+                }, 1000);
+
                 var table = $('#tblId').DataTable({
                     dom: 'Bfrtip',
                     buttons: [
@@ -228,7 +242,16 @@ if (isset($_POST['footprint'])) {
                 });
 
                 $("#submit").on('click', function clearInput(e) {
+                    if($.trim($("#footprint").val()) == '') {
+                        alert("Please enter search term.");
+                        return false;
+                    }
                     var countr = $("#counter").val();
+                    if(timer < 30 && countr > 0){
+                        alert("Please give us 30 seconds between requests, You need " + (30-timer) + " more seconds");
+                        return false;
+                    }
+                    
                     console.log(countr);
                     countr++;
                     $("#counterel").html('<b>Counter : </b> '+countr);
