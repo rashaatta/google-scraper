@@ -9,9 +9,9 @@ class Database
         //        $ini = parse_ini_file('webapp.ini');
         // $ini = parse_ini_file(Config::get('dbPath'));
         $ini = array(
-            'dbhost' => '127.0.0.1',
+            'dbhost' => 'localhost',
             'dbname' => 'id6051643_gscraper',
-            'dbuser' => 'devuser',
+            'dbuser' => 'id6051643_devuser',
             'dbpass' => 'P@ssw0rd',
         );
         if ($dbname === null) {
@@ -25,6 +25,21 @@ class Database
         } catch (PDOException $ex) {
             throw new Exception($ex->getMessage());
         }
+    }
+
+    public function webConnect()
+    {
+
+        $hostname = 'localhost';
+        $username = 'id6051643_devuser';
+        $password = 'P@ssw0rd';
+        $dbname =   'id6051643_gscraper';
+
+        $connection = mysqli_connect($hostname, $username, $password) or die("Cannot connect to " . $hostname . " with username " . $username);
+
+        mysqli_select_db($connection, $dbname) or die("Cannot connect to database " . $dbname);
+
+        return $connection;
     }
 
 }

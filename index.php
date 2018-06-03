@@ -58,15 +58,13 @@ function getVisits(){
     $error = new ErrorMessage();
     try {
         $database = new Database();
-        $db = $database->getMySQLConnection();
+        $db = $database->webConnect();
 
         $query = "SELECT `value` from statistics where code = 'visits'";
-        $stmt = $db->prepare($query);
-        // $stmt->bindParam("CardNumber", $params->cardId);
-
-        $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_OBJ);
-        return $result->value;
+        $result = mysqli_query($db, $query) or die('Query error: ' . mysqli_connect_error());
+        $row = mysqli_fetch_assoc($result);
+        $db->close();
+        return $row['value'];
     } catch (Exception $ex) {
         echo $error->GetError($ex->getFile(), $ex->getLine(), $ex->getMessage());
         return;
