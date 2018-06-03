@@ -221,17 +221,6 @@ if (isset($_POST['footprint'])) {
                                 columns: ':visible'
                             }
                         },
-                        {
-                            extend: 'pdf',
-                            exportOptions: {
-                                columns: ':visible'
-                            }
-                        }, {
-                            extend: 'print',
-                            exportOptions: {
-                                columns: ':visible'
-                            }
-                        },
                         'colvis'
                     ],
                     columnDefs: [{
