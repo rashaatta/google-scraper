@@ -1,6 +1,9 @@
 <?php
+session_start();
 //ini_set('display_errors', 1);
 include('simple_html_dom.php');
+if(!isset($_SESSION['counter'])) $_SESSION['counter'] = 0;
+
 function strip_tags_content($text, $tags = '', $invert = FALSE) {
     $text = str_ireplace("<br>", "", $text);
     preg_match_all('/<(.+?)[\s]*\/?[\s]*>/si', trim($tags), $tags);
@@ -53,7 +56,7 @@ function get_content($url) {
 $result = array();
 
 if (isset($_POST['footprint'])) {
-
+    $_SESSION['counter'] = $_POST['counter'];
     $footprint = $_POST['footprint'];
     $q = urlencode(str_replace(' ', '+', $footprint));
     $data = get_content('http://www.google.com/search?hl=en&q=' . $q . '&num=200&filter=0');
@@ -95,11 +98,11 @@ if (isset($_POST['footprint'])) {
             /* Header cells */
             table.dataTable thead th {
                 text-align: center;
-                background: #66a9bd;
+                background: #269abc;
             }
 
             table.dataTable {
-                border-color: #66a9bd;
+                border-color: #269abc; /* #66a9bd; */
             }
 
         </style>
@@ -107,17 +110,27 @@ if (isset($_POST['footprint'])) {
     <body>
         <div id="app"  class="container">
             <h1>Google scraper</h1>
+            <?php 
+                // $host= gethostname();
+                // $ip = gethostbyname($host);
+                $ip = $_SERVER['SERVER_ADDR'];
+            ?>
+            <div class="row">
+                <p><b>Server IP:</b> <?php echo $ip; ?></p>
+                <p id="counterel"><b>Counter : </b> <?php echo $_SESSION['counter']; ?> </p>
+            </div><br>
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                 <div class="row">
                     <input type="hidden" name='id' id='id'  value="true"/>
                     <input type="hidden" name='title' id='title' value="true"/>
                     <input type="hidden" name="link" id='link' value="true"/>
+                    <input type="hidden" name="counter" id='counter' value="<?php echo $_SESSION['counter']; ?>"/>
                     <input type="hidden" name="description" id='description' value="true"/>                    
                     <input type="text"  class="form-control" placeholder="Search" id="footprint" name="footprint"  style="width: 30%;    display: inline;"  value="<?php echo $footprint; ?>" />
-                    <button type="submit" class="btn btn-success">
+                    <button type="submit" class="btn btn-success" id="submit">
                         <span class="glyphicon glyphicon-search"></span> Scrap!
                     </button>
-                    <button type="submit" class="btn btn-danger" id="clear" >
+                    <button type="button" class="btn btn-danger" id="clear" >
                         <span class="glyphicon glyphicon-remove"></span> clear!
                     </button>
                 </div>
@@ -151,7 +164,7 @@ if (isset($_POST['footprint'])) {
                             '</tr>';
                 }
 
-                $body .= '</tbody></table>';
+                $body .= '</tbody></table><br/><br/><br/>';
 
 //                echo '<b>Total: ' . count($result) . '</b><br>';
 
@@ -212,6 +225,14 @@ if (isset($_POST['footprint'])) {
                     }
                     $('#footprint').val('');
 
+                });
+
+                $("#submit").on('click', function clearInput(e) {
+                    var countr = $("#counter").val();
+                    console.log(countr);
+                    countr++;
+                    $("#counterel").html('<b>Counter : </b> '+countr);
+                    $("#counter").val(countr);
                 });
             });
         </script>
