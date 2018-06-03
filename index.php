@@ -2,7 +2,9 @@
 session_start();
 //ini_set('display_errors', 1);
 include('simple_html_dom.php');
-if(!isset($_SESSION['counter'])) $_SESSION['counter'] = 0;
+include_once('utils.php');
+
+if(!isset($_SESSION['counter'])) $_SESSION['counter'] = getVisits();
 
 function strip_tags_content($text, $tags = '', $invert = FALSE) {
     $text = str_ireplace("<br>", "", $text);
@@ -52,11 +54,48 @@ function get_content($url) {
     return $data;
 }
 
+function getVisits(){
+    $error = new ErrorMessage();
+    try {
+        $database = new Database();
+        $db = $database->getMySQLConnection();
+
+        $query = "SELECT `value` from statistics where code = 'visits'";
+        $stmt = $db->prepare($query);
+        // $stmt->bindParam("CardNumber", $params->cardId);
+
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_OBJ);
+        return $result->value;
+    } catch (Exception $ex) {
+        echo $error->GetError($ex->getFile(), $ex->getLine(), $ex->getMessage());
+        return;
+    }
+}
+
+function updateVisits($visits){
+    $error = new ErrorMessage();
+    try {
+        $database = new Database();
+        $db = $database->getMySQLConnection();
+
+        $query = "update statistics set `value`=:value where code = 'visits'";
+        $stmt = $db->prepare($query);
+        $stmt->bindParam("value", $visits);
+
+        $result = $stmt->execute();
+        return $result;
+    } catch (Exception $ex) {
+        echo $error->GetError($ex->getFile(), $ex->getLine(), $ex->getMessage());
+        return;
+    }
+}
 
 $result = array();
 
 if (isset($_POST['footprint'])) {
     $_SESSION['counter'] = $_POST['counter'];
+    updateVisits($_POST['counter']);
     $footprint = $_POST['footprint'];
     $q = urlencode(str_replace(' ', '+', $footprint));
     $data = get_content('http://www.google.com/search?hl=en&q=' . $q . '&num=200&filter=0');
@@ -118,7 +157,7 @@ if (isset($_POST['footprint'])) {
             <div class="row">
                 <p><b>Server IP:</b> <?php echo $ip; ?></p>
                 <p id="counterel"><b>Counter : </b> <?php echo $_SESSION['counter']; ?> </p>
-                <p><b>Timer : </b> <span id="timer">30</span> </p>
+                <!-- <p><b>Timer : </b> <span id="timer">30</span> </p> -->
             </div><br>
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                 <div class="row">
@@ -192,15 +231,15 @@ if (isset($_POST['footprint'])) {
                 var timer = 0;
                 var minus = 30;
 
-                setInterval(function(){
-                    timer++;
-                    minus = 30 - timer;
-                    if(minus > 0){
-                        $("#timer").html(minus);
-                    } else {
-                        $("#timer").html('You can search now!');
-                    }
-                }, 1000);
+                // setInterval(function(){
+                //     timer++;
+                //     minus = 30 - timer;
+                //     if(minus > 0){
+                //         $("#timer").html(minus);
+                //     } else {
+                //         $("#timer").html('You can search now!');
+                //     }
+                // }, 1000);
 
                 var table = $('#tblId').DataTable({
                     dom: 'Bfrtip',
@@ -247,10 +286,10 @@ if (isset($_POST['footprint'])) {
                         return false;
                     }
                     var countr = $("#counter").val();
-                    if(timer < 30 && countr > 0){
-                        alert("Please give us 30 seconds between requests, You need " + (30-timer) + " more seconds");
-                        return false;
-                    }
+                    // if(timer < 30 && countr > 0){
+                    //     alert("Please give us 30 seconds between requests, You need " + minus + " more seconds");
+                    //     return false;
+                    // }
                     
                     console.log(countr);
                     countr++;
