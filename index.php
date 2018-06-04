@@ -2,7 +2,8 @@
 session_start();
 //ini_set('display_errors', 1);
 include('simple_html_dom.php');
-if(!isset($_SESSION['counter'])) $_SESSION['counter'] = 0;
+if (!isset($_SESSION['counter']))
+    $_SESSION['counter'] = 0;
 
 function strip_tags_content($text, $tags = '', $invert = FALSE) {
     $text = str_ireplace("<br>", "", $text);
@@ -51,7 +52,6 @@ function get_content($url) {
     $data = file_get_html($url);
     return $data;
 }
-
 
 $result = array();
 
@@ -110,16 +110,16 @@ if (isset($_POST['footprint'])) {
     <body>
         <div id="app"  class="container">
             <h1>Google scraper</h1>
-            <?php 
-                // $host= gethostname();
-                // $ip = gethostbyname($host);
-                $ip = $_SERVER['SERVER_ADDR'];
+            <?php
+            // $host= gethostname();
+            // $ip = gethostbyname($host);
+            $ip = $_SERVER['REMOTE_ADDR']; //$_SERVER['SERVER_ADDR'];
             ?>
             <div class="row">
                 <p><b>Server IP:</b> <?php echo $ip; ?></p>
                 <p id="counterel"><b>Counter : </b> <?php echo $_SESSION['counter']; ?> </p>
             </div><br>
-            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                 <div class="row">
                     <input type="hidden" name='id' id='id'  value="true"/>
                     <input type="hidden" name='title' id='title' value="true"/>
@@ -131,7 +131,7 @@ if (isset($_POST['footprint'])) {
                         <span class="glyphicon glyphicon-search"></span> Scrap!
                     </button>
                     <button type="button" class="btn btn-danger" id="clear" >
-                        <span class="glyphicon glyphicon-remove"></span> clear!
+                        <span class="glyphicon glyphicon-remove"></span> Clear!
                     </button>
                 </div>
             </form>
@@ -224,14 +224,20 @@ if (isset($_POST['footprint'])) {
                         e.preventDefault();
                     }
                     $('#footprint').val('');
-
+                    table.clear().draw();
                 });
 
                 $("#submit").on('click', function clearInput(e) {
+                    if($('#footprint').val() == ''){
+                        e.preventDefault();
+                        return false;
+                    }
+                    
+                    
                     var countr = $("#counter").val();
                     console.log(countr);
                     countr++;
-                    $("#counterel").html('<b>Counter : </b> '+countr);
+                   // $("#counterel").html('<b>Counter : </b> ' + countr);
                     $("#counter").val(countr);
                 });
             });

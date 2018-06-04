@@ -10,3 +10,9 @@
  in C:\Projects\google-scraper\test.php on line 34
 [31-May-2018 17:21:12 Africa/Cairo] PHP Warning:  file_get_contents(https://api.screenshots.cloud/v1/screenshot/my-key-generated-at-screenshots-dot-cloud/2612802063219fe7dca57cef61a48299f14c02a5?url=slack.comhttp%3A%2F%2Fdakahlia.moe.gov.eg%2Far%2FEServices%2FPages%2FExamResultSearch.aspx&amp;width=1040&amp;viewport_width=1560&amp;cache_time=86400): failed to open stream: HTTP request failed! HTTP/1.0 403 Forbidden
  in C:\Projects\google-scraper\test.php on line 30
+[04-Jun-2018 15:48:32 Africa/Cairo] PHP Notice:  Undefined index: SERVER_ADDR in C:\Projects\google-scraper\index.php on line 116
+[04-Jun-2018 15:48:39 Africa/Cairo] PHP Notice:  Undefined index: SERVER_ADDR in C:\Projects\google-scraper\index.php on line 116
+[04-Jun-2018 15:49:10 Africa/Cairo] PHP Notice:  Undefined index: SERVER_ADDR in C:\Projects\google-scraper\index.php on line 116
+[04-Jun-2018 15:52:32 Africa/Cairo] PHP Notice:  Undefined index: SERVER_ADDR in C:\Projects\google-scraper\index.php on line 116
+[04-Jun-2018 15:53:37 Africa/Cairo] PHP Notice:  Undefined index: SERVER_ADDR in C:\Projects\google-scraper\index.php on line 116
+[04-Jun-2018 15:53:53 Africa/Cairo] PHP Notice:  Undefined index: SERVER_ADDR in C:\Projects\google-scraper\index.php on line 116
