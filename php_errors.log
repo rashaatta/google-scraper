@@ -16,3 +16,79 @@
 [04-Jun-2018 15:52:32 Africa/Cairo] PHP Notice:  Undefined index: SERVER_ADDR in C:\Projects\google-scraper\index.php on line 116
 [04-Jun-2018 15:53:37 Africa/Cairo] PHP Notice:  Undefined index: SERVER_ADDR in C:\Projects\google-scraper\index.php on line 116
 [04-Jun-2018 15:53:53 Africa/Cairo] PHP Notice:  Undefined index: SERVER_ADDR in C:\Projects\google-scraper\index.php on line 116
+[05-Jun-2018 00:01:10 Africa/Cairo] PHP Warning:  readfile(C:\Windows\Temp\knpF2B5.tmp.jpg): failed to open stream: No such file or directory in C:\Projects\google-scraper\Knplabs\Snappy\Media.php on line 49
+[05-Jun-2018 00:01:10 Africa/Cairo] PHP Warning:  unlink(C:\Windows\Temp\knpF2B5.tmp.jpg): No such file or directory in C:\Projects\google-scraper\Knplabs\Snappy\Media.php on line 50
+[05-Jun-2018 00:01:29 Africa/Cairo] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in C:\Projects\google-scraper\capt.php on line 5
+[05-Jun-2018 00:01:32 Africa/Cairo] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in C:\Projects\google-scraper\capt.php on line 5
+[05-Jun-2018 00:01:36 Africa/Cairo] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in C:\Projects\google-scraper\capt.php on line 5
+[05-Jun-2018 00:01:40 Africa/Cairo] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in C:\Projects\google-scraper\capt.php on line 5
+[05-Jun-2018 00:01:41 Africa/Cairo] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in C:\Projects\google-scraper\capt.php on line 5
+[05-Jun-2018 00:01:52 Africa/Cairo] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in C:\Projects\google-scraper\capt.php on line 5
+[05-Jun-2018 00:01:56 Africa/Cairo] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in C:\Projects\google-scraper\capt.php on line 5
+[05-Jun-2018 00:02:00 Africa/Cairo] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in C:\Projects\google-scraper\capt.php on line 5
+[05-Jun-2018 00:02:02 Africa/Cairo] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in C:\Projects\google-scraper\capt.php on line 5
+[05-Jun-2018 00:16:14 Africa/Cairo] PHP Fatal error:  Class 'Image' not found in C:\Projects\google-scraper\capt.php on line 14
+[05-Jun-2018 00:17:53 Africa/Cairo] PHP Fatal error:  Class 'Image' not found in C:\Projects\google-scraper\capt.php on line 14
+[05-Jun-2018 00:17:55 Africa/Cairo] PHP Fatal error:  Class 'Image' not found in C:\Projects\google-scraper\capt.php on line 14
+[05-Jun-2018 00:18:33 Africa/Cairo] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in C:\Projects\google-scraper\capt.php on line 8
+[05-Jun-2018 00:18:36 Africa/Cairo] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in C:\Projects\google-scraper\capt.php on line 8
+[05-Jun-2018 00:18:47 Africa/Cairo] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in C:\Projects\google-scraper\capt.php on line 8
+[05-Jun-2018 00:22:37 Africa/Cairo] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Unable to write in directory: C:\WINDOWS\TEMP
+' in C:\Projects\google-scraper\vendor\knplabs\knp-snappy\src\Knp\Snappy\AbstractGenerator.php:406
+Stack trace:
+#0 C:\Projects\google-scraper\vendor\knplabs\knp-snappy\src\Knp\Snappy\AbstractGenerator.php(219): Knp\Snappy\AbstractGenerator->createTemporaryFile(NULL, 'png')
+#1 C:\Projects\google-scraper\capt.php(16): Knp\Snappy\AbstractGenerator->getOutput('http://www.bbc....')
+#2 {main}
+  thrown in C:\Projects\google-scraper\vendor\knplabs\knp-snappy\src\Knp\Snappy\AbstractGenerator.php on line 406
+[05-Jun-2018 00:24:49 Africa/Cairo] PHP Warning:  readfile(C:\Windows\Temp\knp9A87.tmp.jpg): failed to open stream: No such file or directory in C:\Projects\google-scraper\Knplabs\Snappy\Media.php on line 49
+[05-Jun-2018 00:24:49 Africa/Cairo] PHP Warning:  unlink(C:\Windows\Temp\knp9A87.tmp.jpg): No such file or directory in C:\Projects\google-scraper\Knplabs\Snappy\Media.php on line 50
+[05-Jun-2018 00:30:17 Africa/Cairo] PHP Warning:  readfile(C:\Windows\Temp\knp99E6.tmp.jpg): failed to open stream: No such file or directory in C:\Projects\google-scraper\Knplabs\Snappy\Media.php on line 49
+[05-Jun-2018 00:30:17 Africa/Cairo] PHP Warning:  unlink(C:\Windows\Temp\knp99E6.tmp.jpg): No such file or directory in C:\Projects\google-scraper\Knplabs\Snappy\Media.php on line 50
+[05-Jun-2018 00:30:20 Africa/Cairo] PHP Warning:  readfile(C:\Windows\Temp\knpA532.tmp.jpg): failed to open stream: No such file or directory in C:\Projects\google-scraper\Knplabs\Snappy\Media.php on line 49
+[05-Jun-2018 00:30:20 Africa/Cairo] PHP Warning:  unlink(C:\Windows\Temp\knpA532.tmp.jpg): No such file or directory in C:\Projects\google-scraper\Knplabs\Snappy\Media.php on line 50
+[05-Jun-2018 00:30:43 Africa/Cairo] PHP Warning:  readfile(C:\Windows\Temp\knpFF1A.tmp.jpg): failed to open stream: No such file or directory in C:\Projects\google-scraper\Knplabs\Snappy\Media.php on line 49
+[05-Jun-2018 00:30:43 Africa/Cairo] PHP Warning:  unlink(C:\Windows\Temp\knpFF1A.tmp.jpg): No such file or directory in C:\Projects\google-scraper\Knplabs\Snappy\Media.php on line 50
+[05-Jun-2018 00:30:44 Africa/Cairo] PHP Warning:  readfile(C:\Windows\Temp\knp48A.tmp.jpg): failed to open stream: No such file or directory in C:\Projects\google-scraper\Knplabs\Snappy\Media.php on line 49
+[05-Jun-2018 00:30:44 Africa/Cairo] PHP Warning:  unlink(C:\Windows\Temp\knp48A.tmp.jpg): No such file or directory in C:\Projects\google-scraper\Knplabs\Snappy\Media.php on line 50
+[05-Jun-2018 00:31:14 Africa/Cairo] PHP Warning:  readfile(C:\Windows\Temp\knp77B7.tmp.jpg): failed to open stream: No such file or directory in C:\Projects\google-scraper\Knplabs\Snappy\Media.php on line 49
+[05-Jun-2018 00:31:14 Africa/Cairo] PHP Warning:  unlink(C:\Windows\Temp\knp77B7.tmp.jpg): No such file or directory in C:\Projects\google-scraper\Knplabs\Snappy\Media.php on line 50
+[05-Jun-2018 00:37:52 Africa/Cairo] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in C:\Projects\google-scraper\capt.php on line 5
+[05-Jun-2018 00:39:19 Africa/Cairo] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in C:\Projects\google-scraper\capt.php on line 5
+[05-Jun-2018 00:39:45 Africa/Cairo] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in C:\Projects\google-scraper\capt.php on line 5
+[05-Jun-2018 00:43:28 Africa/Cairo] PHP Fatal error:  Call to undefined method Knplabs\Snappy\Image::send() in C:\Projects\google-scraper\capt.php on line 17
+[05-Jun-2018 00:44:45 Africa/Cairo] PHP Notice:  Undefined property: Knplabs\Snappy\Image::$output in C:\Projects\google-scraper\capt.php on line 15
+[05-Jun-2018 00:45:22 Africa/Cairo] PHP Catchable fatal error:  Object of class Knplabs\Snappy\Image could not be converted to string in C:\Projects\google-scraper\capt.php on line 15
+[05-Jun-2018 00:50:13 Africa/Cairo] PHP Fatal error:  Call to undefined method Knplabs\Snappy\Image::download() in C:\Projects\google-scraper\capt.php on line 19
+[05-Jun-2018 00:50:34 Africa/Cairo] PHP Fatal error:  Call to undefined method Knplabs\Snappy\Image::download() in C:\Projects\google-scraper\capt.php on line 19
+[05-Jun-2018 01:01:01 Africa/Cairo] PHP Fatal error:  Call to undefined method Knplabs\Snappy\Image::send() in C:\Projects\google-scraper\capt.php on line 16
+[05-Jun-2018 01:10:04 Africa/Cairo] PHP Fatal error:  Call to undefined method Knplabs\Snappy\Image::saveAs() in C:\Projects\google-scraper\capt.php on line 17
+[05-Jun-2018 01:15:37 Africa/Cairo] PHP Warning:  file(http://85.25.9.83/artviper.php?w=360&amp;sdx=1024&amp;q=90&amp;userID=AV_47845683_352324_2FC&amp;url=https%3A%2F%2Fgithub.com%2FKnpLabs%2Fsnappy%2Fissues%2F104): failed to open stream: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+ in C:\Projects\google-scraper\capt.php on line 19
+[05-Jun-2018 01:15:37 Africa/Cairo] PHP Warning:  implode(): Invalid arguments passed in C:\Projects\google-scraper\capt.php on line 19
+[05-Jun-2018 01:42:32 Africa/Cairo] PHP Warning:  file_get_contents(https://www.googleapis.com/pagespeedonline/v2/runPagespeed?url=https://eg.linkedin.com/in/rasha-atta-778170a4&amp;screenshot=true): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in C:\Projects\google-scraper\print.php on line 24
+[05-Jun-2018 01:42:34 Africa/Cairo] PHP Warning:  file_get_contents(https://www.googleapis.com/pagespeedonline/v2/runPagespeed?url=https://eg.linkedin.com/in/rasha-atta-778170a4&amp;screenshot=true): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in C:\Projects\google-scraper\print.php on line 24
+[05-Jun-2018 01:42:36 Africa/Cairo] PHP Warning:  file_get_contents(https://www.googleapis.com/pagespeedonline/v2/runPagespeed?url=https://eg.linkedin.com/in/rasha-atta-778170a4&amp;screenshot=true): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in C:\Projects\google-scraper\print.php on line 24
+[05-Jun-2018 01:45:15 Africa/Cairo] PHP Notice:  Undefined variable: url in C:\Projects\google-scraper\capt.php on line 19
+[05-Jun-2018 01:45:34 Africa/Cairo] PHP Notice:  Undefined variable: url in C:\Projects\google-scraper\capt.php on line 19
+[05-Jun-2018 01:45:41 Africa/Cairo] PHP Notice:  Undefined variable: url in C:\Projects\google-scraper\capt.php on line 19
+[05-Jun-2018 01:46:14 Africa/Cairo] PHP Warning:  readfile(C:\Windows\Temp\knp1D33.tmp.jpg): failed to open stream: No such file or directory in C:\Projects\google-scraper\Knplabs\Snappy\Media.php on line 49
+[05-Jun-2018 01:46:14 Africa/Cairo] PHP Warning:  unlink(C:\Windows\Temp\knp1D33.tmp.jpg): No such file or directory in C:\Projects\google-scraper\Knplabs\Snappy\Media.php on line 50
+[05-Jun-2018 01:46:19 Africa/Cairo] PHP Warning:  readfile(C:\Windows\Temp\knp32DF.tmp.jpg): failed to open stream: No such file or directory in C:\Projects\google-scraper\Knplabs\Snappy\Media.php on line 49
+[05-Jun-2018 01:46:19 Africa/Cairo] PHP Warning:  unlink(C:\Windows\Temp\knp32DF.tmp.jpg): No such file or directory in C:\Projects\google-scraper\Knplabs\Snappy\Media.php on line 50
+[05-Jun-2018 01:47:36 Africa/Cairo] PHP Warning:  readfile(C:\Windows\Temp\knp6054.tmp.jpg): failed to open stream: No such file or directory in C:\Projects\google-scraper\Knplabs\Snappy\Media.php on line 49
+[05-Jun-2018 01:47:36 Africa/Cairo] PHP Warning:  unlink(C:\Windows\Temp\knp6054.tmp.jpg): No such file or directory in C:\Projects\google-scraper\Knplabs\Snappy\Media.php on line 50
+[05-Jun-2018 01:49:54 Africa/Cairo] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in C:\Projects\google-scraper\capt.php on line 8
+[05-Jun-2018 02:11:45 Africa/Cairo] PHP Warning:  file_get_contents(https://www.googleapis.com/pagespeedonline/v2/runPagespeed?url=https://eg.linkedin.com/in/rasha-atta-778170a4&amp;screenshot=true): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in C:\Projects\google-scraper\print.php on line 24
+[05-Jun-2018 02:12:55 Africa/Cairo] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in C:\Projects\google-scraper\capt.php on line 8
+[05-Jun-2018 02:13:36 Africa/Cairo] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in C:\Projects\google-scraper\capt.php on line 8
+[05-Jun-2018 02:13:42 Africa/Cairo] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in C:\Projects\google-scraper\capt.php on line 8
+[05-Jun-2018 02:14:07 Africa/Cairo] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in C:\Projects\google-scraper\capt.php on line 8
+[05-Jun-2018 02:14:10 Africa/Cairo] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in C:\Projects\google-scraper\capt.php on line 8
+[05-Jun-2018 02:14:13 Africa/Cairo] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in C:\Projects\google-scraper\capt.php on line 8
+[05-Jun-2018 02:14:15 Africa/Cairo] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in C:\Projects\google-scraper\capt.php on line 8
+[05-Jun-2018 02:14:37 Africa/Cairo] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in C:\Projects\google-scraper\capt.php on line 8
+[05-Jun-2018 02:15:17 Africa/Cairo] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in C:\Projects\google-scraper\capt.php on line 8

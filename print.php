@@ -4,12 +4,10 @@ $websiteURL = $_GET['url'];
 $out = 'images/out-' . rand() . '.png';
 //echo $websiteURL;
 
-function exportToolPDF($src, $dst)
-{
-
+function exportToolPDF($src, $dst){
     try {
-        //  global $src, $session;
-        $r = exec('wkhtmltoimage ' . $src . ' ' . $dst);
+        //  global $src, $session;        
+        $r = exec('wkhtmltoimage  ' . $src . ' ' . $dst);
         //        exec('/usr/local/bin/dump.sh '.$session);
         return 1;
     } catch (Exception $ex) {

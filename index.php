@@ -24,11 +24,9 @@ function strip_tags_content($text, $tags = '', $invert = FALSE) {
 }
 
 function exportToolPDF($src, $dst) {
-    $error = new ErrorMessage();
     try {
-        //  global $src, $session;
-        exec('wkhtmltoimage ' . $src . ' ' . $dst);
-        //        exec('/usr/local/bin/dump.sh '.$session);
+        //  global $src, $session;        
+        $r = exec('wkhtmltoimage  ' . $src . ' ' . $dst);
         return 1;
     } catch (Exception $ex) {
         echo $ex->getMessage();
@@ -160,7 +158,8 @@ if (isset($_POST['footprint'])) {
                             '<td>' . $line['title'] . '</td>' .
                             '<td><a href="' . $line['link'] . '"  target="_blank" >' . $line['link'] . ' </a></td>' .
                             '<td>' . $line['description'] . '</td>' .
-                            '<td><a href="print.php?url=' . $line['link'] . '"    class="btn btn-info"  target="_blank" > <span class="glyphicon glyphicon-print"></span> CAPTURE</a></td>' .
+//                            '<td><a href="print.php?url=' . $line['link'] . '"    class="btn btn-info"  target="_blank" > <span class="glyphicon glyphicon-print"></span>CAPTURE</a></td>' .
+                             '<td><a href="capt.php?url=' . $line['link'] . '"    class="btn btn-info"  target="_blank" >http://localhost/scraper/capt.php?url='  . $line['link'] . '</a></td>' .
                             '</tr>';
                 }
 
@@ -228,16 +227,16 @@ if (isset($_POST['footprint'])) {
                 });
 
                 $("#submit").on('click', function clearInput(e) {
-                    if($('#footprint').val() == ''){
+                    if ($('#footprint').val() == '') {
                         e.preventDefault();
                         return false;
                     }
-                    
-                    
+
+
                     var countr = $("#counter").val();
                     console.log(countr);
                     countr++;
-                   // $("#counterel").html('<b>Counter : </b> ' + countr);
+                    // $("#counterel").html('<b>Counter : </b> ' + countr);
                     $("#counter").val(countr);
                 });
             });
