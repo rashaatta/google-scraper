@@ -1,6 +1,7 @@
 <?php
 session_start();
 //ini_set('display_errors', 1);
+require __DIR__ . '/vendor/autoload.php';
 include('simple_html_dom.php');
 include_once('utils.php');
 
