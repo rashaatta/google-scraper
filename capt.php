@@ -1,11 +1,12 @@
 <?php
-
+ 
 namespace Knplabs\Snappy;
 
 require_once('Knplabs/Snappy/Media.php');
 require_once('Knplabs/Snappy/Image.php');
 /* 'wkhtmltoimage' executable  is located in the current directory */
-$snap = new Image(__DIR__.'/vendor/bin/wkhtmltoimage-amd64');
+//$snap = new Image(__DIR__.'/vendor/bin/wkhtmltoimage-amd64');
+$snap = new Image('wkhtmltoimage');
 
 /* Displays the bbc.com website index page screen-shot in the browser */
 header("Content-Type: image/jpeg");
