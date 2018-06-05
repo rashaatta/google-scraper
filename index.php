@@ -87,6 +87,15 @@ function updateVisits($visits){
     }
 }
 
+function url(){
+  return sprintf(
+    "%s://%s/",
+    isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
+    $_SERVER['SERVER_NAME'],
+    $_SERVER['REQUEST_URI']
+  );
+}
+
 $result = array();
 
 if (isset($_POST['footprint'])) {
@@ -197,7 +206,7 @@ if (isset($_POST['footprint'])) {
                             '<td><a href="' . $line['link'] . '"  target="_blank" >' . $line['link'] . ' </a></td>' .
                             '<td>' . $line['description'] . '</td>' .
 //                            '<td><a href="print.php?url=' . $line['link'] . '"    class="btn btn-info"  target="_blank" > <span class="glyphicon glyphicon-print"></span>CAPTURE</a></td>' .
-                             '<td><a href="capt.php?url=' . $line['link'] . '"    class=""  target="_blank" >http://localhost/scraper/capt.php?url='  . $line['link'] . '</a></td>' .
+                             '<td><a href="capt.php?url=' . $line['link'] . '"    class=""  target="_blank" >' . url() . 'capt.php?url='  . $line['link'] . '</a></td>' .
                             '</tr>';
                 }
 
