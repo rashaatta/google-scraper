@@ -1,0 +1,12 @@
+{
+    "name": "mahdy/google-scraper",
+    "authors": [
+        {
+            "name": "Mohamed Mahdy",
+            "email": "oracle.dev10g@gmail.com"
+        }
+    ],
+    "require": {
+        "h4cc/wkhtmltoimage-amd64": "0.12.4"
+    }
+}
