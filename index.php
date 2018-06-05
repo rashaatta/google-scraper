@@ -159,7 +159,7 @@ if (isset($_POST['footprint'])) {
                             '<td><a href="' . $line['link'] . '"  target="_blank" >' . $line['link'] . ' </a></td>' .
                             '<td>' . $line['description'] . '</td>' .
 //                            '<td><a href="print.php?url=' . $line['link'] . '"    class="btn btn-info"  target="_blank" > <span class="glyphicon glyphicon-print"></span>CAPTURE</a></td>' .
-                             '<td><a href="capt.php?url=' . $line['link'] . '"    class="btn btn-info"  target="_blank" >http://localhost/scraper/capt.php?url='  . $line['link'] . '</a></td>' .
+                             '<td><a href="capt.php?url=' . $line['link'] . '"    class=""  target="_blank" >http://localhost/scraper/capt.php?url='  . $line['link'] . '</a></td>' .
                             '</tr>';
                 }
 
