@@ -25,11 +25,9 @@ function strip_tags_content($text, $tags = '', $invert = FALSE) {
 }
 
 function exportToolPDF($src, $dst) {
-    $error = new ErrorMessage();
     try {
-        //  global $src, $session;
-        exec('wkhtmltoimage ' . $src . ' ' . $dst);
-        //        exec('/usr/local/bin/dump.sh '.$session);
+        //  global $src, $session;        
+        $r = exec('wkhtmltoimage  ' . $src . ' ' . $dst);
         return 1;
     } catch (Exception $ex) {
         echo $ex->getMessage();
@@ -147,17 +145,17 @@ if (isset($_POST['footprint'])) {
     <body>
         <div id="app"  class="container">
             <h1>Google scraper</h1>
-            <?php 
-                // $host= gethostname();
-                // $ip = gethostbyname($host);
-                $ip = $_SERVER['SERVER_ADDR'];
+            <?php
+            // $host= gethostname();
+            // $ip = gethostbyname($host);
+            $ip = $_SERVER['REMOTE_ADDR']; //$_SERVER['SERVER_ADDR'];
             ?>
             <div class="row">
                 <p><b>Server IP:</b> <?php echo $ip; ?></p>
                 <p id="counterel"><b>Counter : </b> <?php echo $_SESSION['counter']; ?> </p>
                 <!-- <p><b>Timer : </b> <span id="timer">30</span> </p> -->
             </div><br>
-            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                 <div class="row">
                     <input type="hidden" name='id' id='id'  value="true"/>
                     <input type="hidden" name='title' id='title' value="true"/>
@@ -169,7 +167,7 @@ if (isset($_POST['footprint'])) {
                         <span class="glyphicon glyphicon-search"></span> Scrap!
                     </button>
                     <button type="button" class="btn btn-danger" id="clear" >
-                        <span class="glyphicon glyphicon-remove"></span> clear!
+                        <span class="glyphicon glyphicon-remove"></span> Clear!
                     </button>
                 </div>
             </form>
@@ -198,7 +196,8 @@ if (isset($_POST['footprint'])) {
                             '<td>' . $line['title'] . '</td>' .
                             '<td><a href="' . $line['link'] . '"  target="_blank" >' . $line['link'] . ' </a></td>' .
                             '<td>' . $line['description'] . '</td>' .
-                            '<td><a href="print.php?url=' . $line['link'] . '"    class="btn btn-info"  target="_blank" > <span class="glyphicon glyphicon-print"></span> CAPTURE</a></td>' .
+//                            '<td><a href="print.php?url=' . $line['link'] . '"    class="btn btn-info"  target="_blank" > <span class="glyphicon glyphicon-print"></span>CAPTURE</a></td>' .
+                             '<td><a href="capt.php?url=' . $line['link'] . '"    class=""  target="_blank" >http://localhost/scraper/capt.php?url='  . $line['link'] . '</a></td>' .
                             '</tr>';
                 }
 
@@ -275,7 +274,7 @@ if (isset($_POST['footprint'])) {
                         e.preventDefault();
                     }
                     $('#footprint').val('');
-
+                    table.clear().draw();
                 });
 
                 $("#submit").on('click', function clearInput(e) {
@@ -283,6 +282,7 @@ if (isset($_POST['footprint'])) {
                         alert("Please enter search term.");
                         return false;
                     }
+
                     var countr = $("#counter").val();
                     // if(timer < 30 && countr > 0){
                     //     alert("Please give us 30 seconds between requests, You need " + minus + " more seconds");
@@ -291,7 +291,7 @@ if (isset($_POST['footprint'])) {
                     
                     console.log(countr);
                     countr++;
-                    $("#counterel").html('<b>Counter : </b> '+countr);
+                    // $("#counterel").html('<b>Counter : </b> ' + countr);
                     $("#counter").val(countr);
                 });
             });
